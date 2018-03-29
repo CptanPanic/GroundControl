@@ -305,6 +305,10 @@ class GcodeCanvas(FloatLayout, MakesmithInitFuncs):
             centerX = self.xPosition + iTarget
             centerY = self.yPosition + jTarget
             
+            
+            print "Gcode line: " + gCodeLine
+            print "centerY: " + str(centerY)
+            
             angle1 = math.atan2(self.yPosition - centerY, self.xPosition - centerX)
             angle2 = math.atan2(yTarget - centerY, xTarget - centerX)
             
@@ -397,7 +401,11 @@ class GcodeCanvas(FloatLayout, MakesmithInitFuncs):
         pass
     
     def moveLine(self, gCodeLine):
+        '''
         
+        Move a line of gcode to the target location on the sheet
+        
+        '''
         originalLine = gCodeLine
         
         try:
